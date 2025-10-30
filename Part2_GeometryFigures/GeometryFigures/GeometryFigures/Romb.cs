@@ -71,7 +71,7 @@ namespace GeometryFigures
 
         public override string GetDescription()
         {
-            return $"Ромб со стороной {Side:F2} и диагоналями {Diagonal1:F2}×{Diagonal2:F2}";
+            return $"Ромб со стороной {Side:F2} и диагоналями {Diagonal1:F2} и {Diagonal2:F2}";
         }
 
         private bool IsValidRhombus()
@@ -79,7 +79,7 @@ namespace GeometryFigures
             double halfD1 = Diagonal1 / 2;
             double halfD2 = Diagonal2 / 2;
             double expectedSide = Math.Sqrt(halfD1 * halfD1 + halfD2 * halfD2);
-
+            
             return Math.Abs(Side - expectedSide) < 0.001; // Допустимая погрешность
         }
 

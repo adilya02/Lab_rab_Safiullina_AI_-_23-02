@@ -56,7 +56,7 @@ namespace GeometryFigures
 
         public string GetDescription(string additionalInfo)
         {
-            return $"Прямоугольник {Width:F2}×{Height:F2}. {additionalInfo}";
+            return $"Прямоугольник {Width:F2} и {Height:F2}. {additionalInfo}";
         }
 
         public double CalculateDiagonal()

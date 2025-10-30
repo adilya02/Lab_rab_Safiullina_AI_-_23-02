@@ -21,7 +21,7 @@ namespace GeometryFigures
                 shapes.Add(rectangle);
                 Console.WriteLine($"Создан {rectangle.GetDescription()}");
 
-                Romb romb = new Romb(4.0, 6.0, 4.0);
+                Romb romb = new Romb(5.0, 6.0, 8.0);
                 shapes.Add(romb);
                 Console.WriteLine($"Создан {romb.GetDescription()}");
 

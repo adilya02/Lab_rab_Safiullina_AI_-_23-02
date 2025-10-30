@@ -43,6 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ellips.cs" />
+    <Compile Include="IShape.cs" />
+    <Compile Include="Rectangle.cs" />
+    <Compile Include="Romb.cs" />
+    <Compile Include="Shape.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

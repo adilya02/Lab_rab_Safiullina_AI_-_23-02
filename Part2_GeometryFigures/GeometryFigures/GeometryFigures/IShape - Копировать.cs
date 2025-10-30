@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GeometryFigures
 {
-    internal class Program
+    /// <summary>
+    /// Интерфейс для геометрических фигур
+    /// </summary>
+    public interface IShape
     {
-        static void Main(string[] args)
-        {
-        }
+       
+        double CalculateArea();
+
+        double CalculatePerimeter();
+        
+        void PrintInfo();
     }
 }

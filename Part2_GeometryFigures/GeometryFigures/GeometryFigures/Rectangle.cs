@@ -2,7 +2,7 @@
 
 namespace GeometryFigures
 {
-    public class Romb : Shape
+    public class Rectangle : Shape
     {
         private double _width;
         private double _height;
@@ -29,7 +29,7 @@ namespace GeometryFigures
             }
         }
 
-        public Romb(double width, double height) : base("Прямоугольник")
+        public Rectangle(double width, double height) : base("Прямоугольник")
         {
             Width = width;
             Height = height;

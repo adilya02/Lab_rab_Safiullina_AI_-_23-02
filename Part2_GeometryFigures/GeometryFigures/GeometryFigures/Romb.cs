@@ -2,7 +2,7 @@
 
 namespace GeometryFigures
 {
-    public class Rhombus : Shape
+    public class Romb : Shape
     {
         private double _side;
         private double _diagonal1;
@@ -41,7 +41,7 @@ namespace GeometryFigures
             }
         }
 
-        public Rhombus(double side, double diagonal1, double diagonal2) : base("Ромб")
+        public Romb(double side, double diagonal1, double diagonal2) : base("Ромб")
         {
             Side = side;
             Diagonal1 = diagonal1;
@@ -51,7 +51,7 @@ namespace GeometryFigures
                 throw new ArgumentException("Некорректные параметры ромба: диагонали не соответствуют стороне");
         }
 
-        public Rhombus(double side) : base("Ромб (квадрат)")
+        public Romb(double side) : base("Ромб (квадрат)")
         {
             Side = side;
             // Для квадрата диагонали вычисляются автоматически

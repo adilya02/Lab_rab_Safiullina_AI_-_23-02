@@ -10,11 +10,11 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            StatusTextBlock.Text = "Введите числитель и знаменатель";
+            StatusTextBlock.Content = "Готов к работе. Введите значения числителя и знаменателя.";
         }
 
         // Обработчик для вычисления процентов
-        private void ProcentButton_Click(object sender, RoutedEventArgs e)
+        private void PercentageButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -27,8 +27,8 @@ namespace WpfApp1
 
                     if (!fraction.IsProperFraction())
                     {
-                        ResultTextBlock.Text = "Внимание: числитель ≥ знаменателя!\n\n" +
-                                             "Рекомендуется использовать числитель < знаменателя.\n" +
+                        ResultTextBlock.Text = "Внимание: дробь неправильная (числитель ≥ знаменателя)!\n\n" +
+                                             "Рекомендуется использовать правильную дробь (числитель < знаменателя).\n" +
                                              "Результат может быть некорректным.";
                     }
                     else
@@ -38,13 +38,13 @@ namespace WpfApp1
 
                     double percentage = fraction.ToPercentage();
                     ResultTextBlock.Text += $"\nДробь {fraction} составляет {percentage:F2}% от целого";
-                    StatusTextBlock.Text = "Проценты вычислены";
+                    StatusTextBlock.Content = "Проценты вычислены успешно";
                 }
             }
             catch (Exception ex)
             {
                 ResultTextBlock.Text = $"Ошибка: {ex.Message}";
-                StatusTextBlock.Text = "Ошибка при вычислении";
+                StatusTextBlock.Content = "Произошла ошибка при вычислении";
             }
         }
 
@@ -60,13 +60,13 @@ namespace WpfApp1
 
                     int digitSum = fraction.DenominatorDigitSum();
                     ResultTextBlock.Text = $"Сумма цифр знаменателя {denominator} равна {digitSum}";
-                    StatusTextBlock.Text = "Сумма цифр вычислена";
+                    StatusTextBlock.Content = "Сумма цифр вычислена успешно";
                 }
             }
             catch (Exception ex)
             {
                 ResultTextBlock.Text = $"Ошибка: {ex.Message}";
-                StatusTextBlock.Text = "Произошла ошибка при вычислении";
+                StatusTextBlock.Content = "Произошла ошибка при вычислении";
             }
         }
 
@@ -80,6 +80,23 @@ namespace WpfApp1
         private void DenominatorTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !IsTextAllowed(e.Text);
+        }
+
+        // Обработчик для клавиш
+        private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            // Разрешаем служебные клавиши
+            if (e.Key == Key.Back || e.Key == Key.Delete || e.Key == Key.Left ||
+                e.Key == Key.Right || e.Key == Key.Tab)
+            {
+                return;
+            }
+
+            // Запрещаем пробел
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
         }
 
         // Проверка, что текст содержит только цифры
@@ -142,23 +159,6 @@ namespace WpfApp1
             }
 
             return true;
-        }
-
-        // Дополнительный обработчик для клавиш (опционально)
-        private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            // Разрешаем служебные клавиши
-            if (e.Key == Key.Back || e.Key == Key.Delete || e.Key == Key.Left ||
-                e.Key == Key.Right || e.Key == Key.Tab)
-            {
-                return;
-            }
-
-            // Запрещаем пробел
-            if (e.Key == Key.Space)
-            {
-                e.Handled = true;
-            }
         }
     }
 }
